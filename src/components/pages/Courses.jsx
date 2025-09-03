@@ -49,8 +49,8 @@ const Courses = () => {
     course.professor.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const getAssignmentCount = (courseId) => {
-    return assignments.filter(assignment => assignment.courseId === courseId).length;
+const getAssignmentCount = (courseId) => {
+    return assignments.filter(assignment => assignment.courseId_c === courseId).length;
   };
 
   const handleCreateCourse = async (courseData) => {
@@ -89,8 +89,8 @@ const Courses = () => {
       await courseService.delete(courseId);
       setCourses(prev => prev.filter(course => course.Id !== courseId));
       
-      // Also remove assignments for this course
-      setAssignments(prev => prev.filter(assignment => assignment.courseId !== courseId));
+// Also remove assignments for this course
+      setAssignments(prev => prev.filter(assignment => assignment.courseId_c !== courseId));
       
       toast.success("Course deleted successfully!");
     } catch (err) {

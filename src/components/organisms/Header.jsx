@@ -1,19 +1,30 @@
-import React, { useState } from "react";
-import { cn } from "@/utils/cn";
-import Button from "@/components/atoms/Button";
-import ApperIcon from "@/components/ApperIcon";
-import QuickAddButton from "@/components/molecules/QuickAddButton";
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Button from '@/components/atoms/Button';
+import ApperIcon from '@/components/ApperIcon';
+import { AuthContext } from '../../App';
+import { cn } from '@/utils/cn';
 
-const Header = ({ 
-  title, 
-  subtitle,
-  onMenuToggle, 
-  showMobileMenu = false,
-  onQuickAdd,
-  className 
-}) => {
+const Header = ({ showMobileMenu, onMenuToggle, className }) => {
+  const { logout } = useContext(AuthContext);
+  const userState = useSelector((state) => state.user);
+  const user = userState?.user;
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   return (
-    <header className={cn("bg-white border-b border-gray-200 px-4 py-4", className)}>
+    <header className={cn(
+      "bg-white shadow-sm border-b border-gray-200 px-4 py-3",
+      className
+    )}>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           {showMobileMenu && (
@@ -26,28 +37,30 @@ const Header = ({
             />
           )}
           
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
-            {subtitle && (
-              <p className="text-sm text-gray-600 mt-1">{subtitle}</p>
-            )}
+          <div className="lg:hidden">
+            <h1 className="text-xl font-bold text-gray-900">CampusHub</h1>
           </div>
         </div>
 
         <div className="flex items-center space-x-4">
-          <div className="hidden sm:flex items-center space-x-2">
-            <div className="text-right">
-              <p className="text-sm font-medium text-gray-900">Academic Year</p>
-              <p className="text-xs text-gray-500">2023-2024</p>
-            </div>
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-              <ApperIcon name="User" className="text-white" size={20} />
-            </div>
-          </div>
-          
-          {onQuickAdd && (
-            <div className="lg:hidden">
-              <QuickAddButton {...onQuickAdd} />
+          {user && (
+            <div className="flex items-center space-x-3">
+              <div className="text-right">
+                <p className="text-sm font-medium text-gray-900">
+                  {user.firstName} {user.lastName}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {user.emailAddress}
+                </p>
+              </div>
+              
+              <Button
+                variant="ghost"
+                size="sm"
+                icon="LogOut"
+                onClick={handleLogout}
+                className="text-gray-600 hover:text-gray-900"
+              />
             </div>
           )}
         </div>

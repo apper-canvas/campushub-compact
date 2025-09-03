@@ -1,9 +1,8 @@
 import React from "react";
-import { cn } from "@/utils/cn";
-import Card from "@/components/atoms/Card";
-import ScheduleBlock from "@/components/molecules/ScheduleBlock";
 import { formatTime } from "@/utils/dateUtils";
-
+import { cn } from "@/utils/cn";
+import ScheduleBlock from "@/components/molecules/ScheduleBlock";
+import Card from "@/components/atoms/Card";
 const WeeklySchedule = ({ courses, schedules, onScheduleClick }) => {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   const timeSlots = [];
@@ -14,7 +13,7 @@ const WeeklySchedule = ({ courses, schedules, onScheduleClick }) => {
   }
 
   const getSchedulesForDay = (day) => {
-    return schedules.filter(schedule => schedule.dayOfWeek === day);
+return schedules.filter(schedule => schedule.dayOfWeek === day);
   };
 
   return (
@@ -52,11 +51,12 @@ const WeeklySchedule = ({ courses, schedules, onScheduleClick }) => {
             ))}
             
             {/* Schedule blocks */}
-            {getSchedulesForDay(day).map((schedule) => {
-              const course = courses.find(c => c.Id === schedule.courseId);
+{getSchedulesForDay(day).map((schedule) => {
+              const course = courses.find(c => c.Id === schedule.courseId_c);
+              
               return (
                 <ScheduleBlock
-                  key={`${schedule.courseId}-${schedule.dayOfWeek}-${schedule.startTime}`}
+                  key={`${schedule.courseId_c}-${schedule.dayOfWeek}-${schedule.startTime}`}
                   schedule={schedule}
                   course={course}
                   onClick={() => onScheduleClick && onScheduleClick(schedule, course)}

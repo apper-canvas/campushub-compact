@@ -45,12 +45,11 @@ const TodaySchedule = ({ todaySchedules, courses, className }) => {
       </div>
 
       <div className="space-y-4">
-        {todayClasses.map((schedule, index) => {
-          const course = courses.find(c => c.Id === schedule.courseId);
+{todayClasses.map((schedule, index) => {
+          const course = courses.find(c => c.Id === schedule.courseId_c);
           const currentTime = new Date();
           const classStart = new Date(`${currentTime.toDateString()} ${schedule.startTime}`);
           const classEnd = new Date(`${currentTime.toDateString()} ${schedule.endTime}`);
-          
           const isCurrentClass = currentTime >= classStart && currentTime <= classEnd;
           const isUpcoming = currentTime < classStart;
           

@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
-import Select from "@/components/atoms/Select";
 import Textarea from "@/components/atoms/Textarea";
+import Select from "@/components/atoms/Select";
+import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
-
 const AssignmentForm = ({ assignment, courses, onSubmit, onCancel }) => {
-  const [formData, setFormData] = useState({
-    courseId: "",
+const [formData, setFormData] = useState({
+    courseId_c: "",
     title: "",
     description: "",
     dueDate: "",
@@ -18,9 +17,9 @@ const AssignmentForm = ({ assignment, courses, onSubmit, onCancel }) => {
   });
 
   useEffect(() => {
-    if (assignment) {
+if (assignment) {
       setFormData({
-        courseId: assignment.courseId || "",
+        courseId_c: assignment.courseId_c || "",
         title: assignment.title || "",
         description: assignment.description || "",
         dueDate: assignment.dueDate?.split('T')[0] || "",
@@ -34,30 +33,30 @@ const AssignmentForm = ({ assignment, courses, onSubmit, onCancel }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (!formData.courseId || !formData.title.trim() || !formData.dueDate) {
+if (!formData.courseId_c || !formData.title.trim() || !formData.dueDate) {
       toast.error("Please fill in all required fields");
       return;
     }
 
-    const submitData = {
+    const assignmentData = {
       ...formData,
+      courseId: formData.courseId_c,
       dueDate: new Date(formData.dueDate).toISOString(),
       grade: formData.grade ? parseFloat(formData.grade) : null
-    };
+};
 
-    onSubmit(submitData);
+    onSubmit(assignmentData);
   };
-
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <Card className="p-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Assignment Details</h3>
         
         <div className="space-y-4">
-          <Select
+<Select
             label="Course *"
-            value={formData.courseId}
-            onChange={(e) => setFormData(prev => ({ ...prev, courseId: e.target.value }))}
+            value={formData.courseId_c}
+            onChange={(e) => setFormData(prev => ({ ...prev, courseId_c: e.target.value }))}
             placeholder="Select a course"
             required
           >

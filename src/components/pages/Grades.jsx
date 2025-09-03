@@ -43,13 +43,13 @@ const Grades = () => {
   const currentGPA = calculateGPA(courses);
   const totalCredits = courses.reduce((sum, course) => sum + course.credits, 0);
 
-  const getAssignmentsForCourse = (courseId) => {
-    return assignments.filter(assignment => assignment.courseId === courseId);
+const getAssignmentsForCourse = (courseId) => {
+    return assignments.filter(assignment => assignment.courseId_c === courseId);
   };
 
-  const getGradedAssignmentsForCourse = (courseId) => {
+const getGradedAssignmentsForCourse = (courseId) => {
     return assignments.filter(assignment => 
-      assignment.courseId === courseId && 
+      assignment.courseId_c === courseId && 
       assignment.grade !== null && 
       assignment.grade !== undefined
     );

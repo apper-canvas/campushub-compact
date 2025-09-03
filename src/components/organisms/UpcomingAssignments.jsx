@@ -54,7 +54,7 @@ const UpcomingAssignments = ({
 
       <div className="space-y-4">
         {upcomingAssignments.map((assignment) => {
-          const course = courses.find(c => c.Id === assignment.courseId);
+const course = courses.find(c => c.Id === assignment.courseId_c);
           const urgency = getDueDateUrgency(assignment.dueDate);
           
           return (

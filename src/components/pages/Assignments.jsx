@@ -49,11 +49,11 @@ const Assignments = () => {
   }, []);
 
   const filteredAssignments = assignments
-    .filter(assignment => {
+.filter(assignment => {
       // Search filter
       if (searchTerm) {
         const searchLower = searchTerm.toLowerCase();
-        const course = courses.find(c => c.Id === assignment.courseId);
+        const course = courses.find(c => c.Id === assignment.courseId_c);
         if (
           !assignment.title.toLowerCase().includes(searchLower) &&
           !assignment.description?.toLowerCase().includes(searchLower) &&
@@ -72,7 +72,7 @@ const Assignments = () => {
       }
 
       // Course filter
-      if (filterCourse !== "all" && assignment.courseId !== filterCourse) return false;
+if (filterCourse !== "all" && assignment.courseId_c !== filterCourse) return false;
 
       // Priority filter
       if (filterPriority !== "all" && assignment.priority !== filterPriority) return false;
@@ -307,7 +307,7 @@ const Assignments = () => {
       ) : (
         <div className="space-y-4">
           {filteredAssignments.map((assignment) => {
-            const course = courses.find(c => c.Id === assignment.courseId);
+const course = courses.find(c => c.Id === assignment.courseId_c);
             return (
               <AssignmentItem
                 key={assignment.Id}

@@ -1,66 +1,199 @@
-import coursesData from "@/services/mockData/courses.json";
-
 class CourseService {
   constructor() {
-    this.courses = [...coursesData];
+    this.tableName = 'course_c';
+    this.apperClient = null;
+    this.initializeClient();
+  }
+
+  initializeClient() {
+    if (typeof window !== 'undefined' && window.ApperSDK) {
+      const { ApperClient } = window.ApperSDK;
+      this.apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+    }
   }
 
   async getAll() {
-    await this.delay();
-    return [...this.courses];
+    try {
+      if (!this.apperClient) this.initializeClient();
+      
+      const params = {
+        fields: [
+          {"field": {"Name": "Id"}},
+          {"field": {"Name": "name"}},
+          {"field": {"Name": "code"}},
+          {"field": {"Name": "professor"}},
+          {"field": {"Name": "credits"}},
+          {"field": {"Name": "color"}},
+          {"field": {"Name": "schedule"}},
+          {"field": {"Name": "gradeCategories"}}
+        ],
+        orderBy: [{"fieldName": "name", "sorttype": "ASC"}],
+        pagingInfo: {"limit": 100, "offset": 0}
+      };
+      
+      const response = await this.apperClient.fetchRecords(this.tableName, params);
+      
+      if (!response.success) {
+        console.error("Failed to fetch courses:", response.message);
+        return [];
+      }
+      
+      return response.data || [];
+    } catch (error) {
+      console.error("Error fetching courses:", error.message);
+      return [];
+    }
   }
 
   async getById(id) {
-    await this.delay();
-    const course = this.courses.find(course => course.Id === parseInt(id));
-    if (!course) {
-      throw new Error("Course not found");
+    try {
+      if (!this.apperClient) this.initializeClient();
+      
+      const params = {
+        fields: [
+          {"field": {"Name": "Id"}},
+          {"field": {"Name": "name"}},
+          {"field": {"Name": "code"}},
+          {"field": {"Name": "professor"}},
+          {"field": {"Name": "credits"}},
+          {"field": {"Name": "color"}},
+          {"field": {"Name": "schedule"}},
+          {"field": {"Name": "gradeCategories"}}
+        ]
+      };
+      
+      const response = await this.apperClient.getRecordById(this.tableName, parseInt(id), params);
+      
+      if (!response.success) {
+        console.error("Failed to fetch course:", response.message);
+        return null;
+      }
+      
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching course ${id}:`, error.message);
+      return null;
     }
-    return { ...course };
   }
 
   async create(courseData) {
-    await this.delay();
-    const maxId = this.courses.length > 0 ? Math.max(...this.courses.map(c => c.Id)) : 0;
-    const newCourse = {
-      Id: maxId + 1,
-      ...courseData,
-      createdAt: new Date().toISOString()
-    };
-    this.courses.push(newCourse);
-    return { ...newCourse };
+    try {
+      if (!this.apperClient) this.initializeClient();
+      
+      const params = {
+        records: [
+          {
+            name: courseData.name,
+            code: courseData.code,
+            professor: courseData.professor,
+            credits: courseData.credits,
+            color: courseData.color || "#5B3FF9",
+            schedule: JSON.stringify(courseData.schedule || []),
+            gradeCategories: JSON.stringify(courseData.gradeCategories || [])
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.createRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error("Failed to create course:", response.message);
+        throw new Error(response.message);
+      }
+      
+      if (response.results && response.results.length > 0) {
+        const result = response.results[0];
+        if (result.success) {
+          return result.data;
+        } else {
+          console.error("Course creation failed:", result.message);
+          throw new Error(result.message);
+        }
+      }
+      
+      throw new Error("No result returned from create operation");
+    } catch (error) {
+      console.error("Error creating course:", error.message);
+      throw error;
+    }
   }
 
   async update(id, courseData) {
-    await this.delay();
-    const index = this.courses.findIndex(course => course.Id === parseInt(id));
-    if (index === -1) {
-      throw new Error("Course not found");
+    try {
+      if (!this.apperClient) this.initializeClient();
+      
+      const params = {
+        records: [
+          {
+            Id: parseInt(id),
+            name: courseData.name,
+            code: courseData.code,
+            professor: courseData.professor,
+            credits: courseData.credits,
+            color: courseData.color,
+            schedule: JSON.stringify(courseData.schedule || []),
+            gradeCategories: JSON.stringify(courseData.gradeCategories || [])
+          }
+        ]
+      };
+      
+      const response = await this.apperClient.updateRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error("Failed to update course:", response.message);
+        throw new Error(response.message);
+      }
+      
+      if (response.results && response.results.length > 0) {
+        const result = response.results[0];
+        if (result.success) {
+          return result.data;
+        } else {
+          console.error("Course update failed:", result.message);
+          throw new Error(result.message);
+        }
+      }
+      
+      throw new Error("No result returned from update operation");
+    } catch (error) {
+      console.error("Error updating course:", error.message);
+      throw error;
     }
-    
-    this.courses[index] = {
-      ...this.courses[index],
-      ...courseData,
-      Id: parseInt(id),
-      updatedAt: new Date().toISOString()
-    };
-    
-    return { ...this.courses[index] };
   }
 
   async delete(id) {
-    await this.delay();
-    const index = this.courses.findIndex(course => course.Id === parseInt(id));
-    if (index === -1) {
-      throw new Error("Course not found");
+    try {
+      if (!this.apperClient) this.initializeClient();
+      
+      const params = {
+        RecordIds: [parseInt(id)]
+      };
+      
+      const response = await this.apperClient.deleteRecord(this.tableName, params);
+      
+      if (!response.success) {
+        console.error("Failed to delete course:", response.message);
+        throw new Error(response.message);
+      }
+      
+      if (response.results && response.results.length > 0) {
+        const result = response.results[0];
+        if (result.success) {
+          return true;
+        } else {
+          console.error("Course deletion failed:", result.message);
+          throw new Error(result.message);
+        }
+      }
+      
+      return true;
+    } catch (error) {
+      console.error("Error deleting course:", error.message);
+      throw error;
     }
-    
-    this.courses.splice(index, 1);
-    return true;
-  }
-
-  delay(ms = Math.random() * 300 + 200) {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
 
