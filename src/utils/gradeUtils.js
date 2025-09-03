@@ -57,6 +57,15 @@ export const getLetterGrade = (grade) => {
   if (grade >= 73) return 'C';
   if (grade >= 70) return 'C-';
   if (grade >= 67) return 'D+';
-  if (grade >= 65) return 'D';
+if (grade >= 65) return 'D';
   return 'F';
+};
+
+export const getGradeColor = (grade) => {
+  if (!grade || grade < 0) return 'text-gray-400';
+  if (grade >= 90) return 'text-success-600';  // A grades - green
+  if (grade >= 80) return 'text-primary-600';  // B grades - primary blue/purple
+  if (grade >= 70) return 'text-warning-600';  // C grades - orange
+  if (grade >= 65) return 'text-error-500';    // D grades - red
+  return 'text-error-600';                     // F grades - darker red
 };
