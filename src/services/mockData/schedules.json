@@ -1,0 +1,90 @@
+[
+  {
+    "Id": 1,
+    "courseId": 1,
+    "dayOfWeek": "Monday",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "location": "Science Building 201"
+  },
+  {
+    "Id": 2,
+    "courseId": 1,
+    "dayOfWeek": "Wednesday",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "location": "Science Building 201"
+  },
+  {
+    "Id": 3,
+    "courseId": 1,
+    "dayOfWeek": "Friday",
+    "startTime": "09:00",
+    "endTime": "10:30",
+    "location": "Computer Lab A"
+  },
+  {
+    "Id": 4,
+    "courseId": 2,
+    "dayOfWeek": "Tuesday",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "location": "Mathematics Hall 105"
+  },
+  {
+    "Id": 5,
+    "courseId": 2,
+    "dayOfWeek": "Thursday",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "location": "Mathematics Hall 105"
+  },
+  {
+    "Id": 6,
+    "courseId": 3,
+    "dayOfWeek": "Monday",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "location": "Humanities Building 302"
+  },
+  {
+    "Id": 7,
+    "courseId": 3,
+    "dayOfWeek": "Wednesday",
+    "startTime": "14:00",
+    "endTime": "15:30",
+    "location": "Humanities Building 302"
+  },
+  {
+    "Id": 8,
+    "courseId": 4,
+    "dayOfWeek": "Tuesday",
+    "startTime": "13:00",
+    "endTime": "14:30",
+    "location": "Physics Lab 150"
+  },
+  {
+    "Id": 9,
+    "courseId": 4,
+    "dayOfWeek": "Thursday",
+    "startTime": "13:00",
+    "endTime": "14:30",
+    "location": "Physics Lab 150"
+  },
+  {
+    "Id": 10,
+    "courseId": 5,
+    "dayOfWeek": "Monday",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "location": "Social Sciences 410"
+  },
+  {
+    "Id": 11,
+    "courseId": 5,
+    "dayOfWeek": "Friday",
+    "startTime": "16:00",
+    "endTime": "17:30",
+    "location": "Social Sciences 410"
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "Id": 1,
+    "courseId": 1,
+    "title": "Programming Assignment 1: Variables and Data Types",
+    "description": "Write a Python program that demonstrates understanding of variables, data types, and basic operations.",
+    "dueDate": "2024-02-15T23:59:00.000Z",
+    "priority": "High",
+    "completed": true,
+    "grade": 88
+  },
+  {
+    "Id": 2,
+    "courseId": 1,
+    "title": "Programming Assignment 2: Control Structures",
+    "description": "Implement various control structures including loops and conditional statements.",
+    "dueDate": "2024-02-22T23:59:00.000Z",
+    "priority": "High",
+    "completed": true,
+    "grade": 92
+  },
+  {
+    "Id": 3,
+    "courseId": 1,
+    "title": "Final Project Proposal",
+    "description": "Submit a detailed proposal for your final project including objectives, methodology, and timeline.",
+    "dueDate": "2024-04-10T23:59:00.000Z",
+    "priority": "Medium",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 4,
+    "courseId": 2,
+    "title": "Homework 3: Derivatives and Applications",
+    "description": "Complete problems 1-25 from Chapter 3, focusing on derivative rules and applications.",
+    "dueDate": "2024-02-20T08:00:00.000Z",
+    "priority": "Medium",
+    "completed": true,
+    "grade": 85
+  },
+  {
+    "Id": 5,
+    "courseId": 2,
+    "title": "Homework 4: Integration Techniques",
+    "description": "Solve integration problems using various techniques including substitution and integration by parts.",
+    "dueDate": "2024-02-27T08:00:00.000Z",
+    "priority": "Medium",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 6,
+    "courseId": 3,
+    "title": "Essay 1: Personal Narrative",
+    "description": "Write a 750-1000 word personal narrative essay demonstrating clear thesis and organization.",
+    "dueDate": "2024-02-18T23:59:00.000Z",
+    "priority": "High",
+    "completed": true,
+    "grade": 87
+  },
+  {
+    "Id": 7,
+    "courseId": 3,
+    "title": "Research Paper: Topic Selection",
+    "description": "Choose and submit your research paper topic with preliminary bibliography.",
+    "dueDate": "2024-03-15T23:59:00.000Z",
+    "priority": "Medium",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 8,
+    "courseId": 4,
+    "title": "Lab Report 2: Projectile Motion",
+    "description": "Analyze experimental data and write a comprehensive lab report on projectile motion experiments.",
+    "dueDate": "2024-02-25T17:00:00.000Z",
+    "priority": "High",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 9,
+    "courseId": 4,
+    "title": "Problem Set 3: Energy and Momentum",
+    "description": "Solve problems related to conservation of energy and momentum in various physical systems.",
+    "dueDate": "2024-03-01T23:59:00.000Z",
+    "priority": "Medium",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 10,
+    "courseId": 5,
+    "title": "Chapter 2 Quiz Preparation",
+    "description": "Review material from Chapter 2: Biological Bases of Behavior for upcoming quiz.",
+    "dueDate": "2024-02-21T09:00:00.000Z",
+    "priority": "Low",
+    "completed": true,
+    "grade": 94
+  },
+  {
+    "Id": 11,
+    "courseId": 5,
+    "title": "Research Paper: Cognitive Development",
+    "description": "Write a 6-8 page research paper on theories of cognitive development in children.",
+    "dueDate": "2024-04-05T23:59:00.000Z",
+    "priority": "High",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 12,
+    "courseId": 1,
+    "title": "Midterm Exam Study Guide",
+    "description": "Complete the comprehensive study guide covering all topics from weeks 1-7.",
+    "dueDate": "2024-03-08T08:00:00.000Z",
+    "priority": "High",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 13,
+    "courseId": 2,
+    "title": "Quiz 4: Fundamental Theorem of Calculus",
+    "description": "Prepare for quiz covering the Fundamental Theorem of Calculus and its applications.",
+    "dueDate": "2024-02-29T11:00:00.000Z",
+    "priority": "Medium",
+    "completed": false,
+    "grade": null
+  },
+  {
+    "Id": 14,
+    "courseId": 3,
+    "title": "Peer Review Workshop",
+    "description": "Participate in peer review session for draft essays, providing constructive feedback.",
+    "dueDate": "2024-02-16T14:00:00.000Z",
+    "priority": "Low",
+    "completed": true,
+    "grade": 88
+  },
+  {
+    "Id": 15,
+    "courseId": 4,
+    "title": "Lab Report 1: Measurement and Error Analysis",
+    "description": "Complete lab report analyzing measurement techniques and error propagation.",
+    "dueDate": "2024-02-12T17:00:00.000Z",
+    "priority": "Medium",
+    "completed": true,
+    "grade": 91
+  }
+]

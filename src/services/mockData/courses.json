@@ -1,0 +1,223 @@
+[
+  {
+    "Id": 1,
+    "name": "Introduction to Computer Science",
+    "code": "CS 101",
+    "professor": "Dr. Sarah Johnson",
+    "credits": 4,
+    "color": "#5B3FF9",
+    "schedule": [
+      {
+        "dayOfWeek": "Monday",
+        "startTime": "09:00",
+        "endTime": "10:30",
+        "location": "Science Building 201"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "startTime": "09:00",
+        "endTime": "10:30",
+        "location": "Science Building 201"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "startTime": "09:00",
+        "endTime": "10:30",
+        "location": "Computer Lab A"
+      }
+    ],
+    "gradeCategories": [
+      {
+        "name": "Programming Assignments",
+        "weight": 40,
+        "currentGrade": 88
+      },
+      {
+        "name": "Midterm Exam",
+        "weight": 25,
+        "currentGrade": 92
+      },
+      {
+        "name": "Final Project",
+        "weight": 25,
+        "currentGrade": null
+      },
+      {
+        "name": "Participation",
+        "weight": 10,
+        "currentGrade": 95
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "name": "Calculus I",
+    "code": "MATH 151",
+    "professor": "Dr. Michael Chen",
+    "credits": 4,
+    "color": "#10B981",
+    "schedule": [
+      {
+        "dayOfWeek": "Tuesday",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "location": "Mathematics Hall 105"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "startTime": "11:00",
+        "endTime": "12:30",
+        "location": "Mathematics Hall 105"
+      }
+    ],
+    "gradeCategories": [
+      {
+        "name": "Homework",
+        "weight": 20,
+        "currentGrade": 85
+      },
+      {
+        "name": "Quizzes",
+        "weight": 20,
+        "currentGrade": 90
+      },
+      {
+        "name": "Midterm Exams",
+        "weight": 35,
+        "currentGrade": 78
+      },
+      {
+        "name": "Final Exam",
+        "weight": 25,
+        "currentGrade": null
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "name": "English Composition",
+    "code": "ENG 101",
+    "professor": "Prof. Emily Rodriguez",
+    "credits": 3,
+    "color": "#F59E0B",
+    "schedule": [
+      {
+        "dayOfWeek": "Monday",
+        "startTime": "14:00",
+        "endTime": "15:30",
+        "location": "Humanities Building 302"
+      },
+      {
+        "dayOfWeek": "Wednesday",
+        "startTime": "14:00",
+        "endTime": "15:30",
+        "location": "Humanities Building 302"
+      }
+    ],
+    "gradeCategories": [
+      {
+        "name": "Essays",
+        "weight": 50,
+        "currentGrade": 87
+      },
+      {
+        "name": "Research Paper",
+        "weight": 30,
+        "currentGrade": null
+      },
+      {
+        "name": "Class Participation",
+        "weight": 10,
+        "currentGrade": 92
+      },
+      {
+        "name": "Peer Reviews",
+        "weight": 10,
+        "currentGrade": 88
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "name": "Physics I",
+    "code": "PHYS 201",
+    "professor": "Dr. James Wilson",
+    "credits": 4,
+    "color": "#3B82F6",
+    "schedule": [
+      {
+        "dayOfWeek": "Tuesday",
+        "startTime": "13:00",
+        "endTime": "14:30",
+        "location": "Physics Lab 150"
+      },
+      {
+        "dayOfWeek": "Thursday",
+        "startTime": "13:00",
+        "endTime": "14:30",
+        "location": "Physics Lab 150"
+      }
+    ],
+    "gradeCategories": [
+      {
+        "name": "Lab Reports",
+        "weight": 30,
+        "currentGrade": 91
+      },
+      {
+        "name": "Problem Sets",
+        "weight": 25,
+        "currentGrade": 83
+      },
+      {
+        "name": "Midterm Exam",
+        "weight": 20,
+        "currentGrade": 86
+      },
+      {
+        "name": "Final Exam",
+        "weight": 25,
+        "currentGrade": null
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "name": "Introduction to Psychology",
+    "code": "PSYC 101",
+    "professor": "Dr. Lisa Anderson",
+    "credits": 3,
+    "color": "#8B5CF6",
+    "schedule": [
+      {
+        "dayOfWeek": "Monday",
+        "startTime": "16:00",
+        "endTime": "17:30",
+        "location": "Social Sciences 410"
+      },
+      {
+        "dayOfWeek": "Friday",
+        "startTime": "16:00",
+        "endTime": "17:30",
+        "location": "Social Sciences 410"
+      }
+    ],
+    "gradeCategories": [
+      {
+        "name": "Exams",
+        "weight": 60,
+        "currentGrade": 89
+      },
+      {
+        "name": "Research Paper",
+        "weight": 25,
+        "currentGrade": null
+      },
+      {
+        "name": "Class Participation",
+        "weight": 15,
+        "currentGrade": 94
+      }
+    ]
+  }
+]
